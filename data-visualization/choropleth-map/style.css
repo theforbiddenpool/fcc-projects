@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #eae9e4;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #e2b995;
+}
+
+.container {
+  height: 95vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+header {
+  flex: 0 1 30%;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1rem;
+  background-color: #d3e0ce;
+}
+
+.graph-container {
+  background-color: white;
+  padding: 1rem;
+}
+
+.graph-container > .source {
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+header, .graph-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#tooltip {
+  position: absolute;
+  background-color: rgba(252, 225, 199, 0.8);
+  padding: .5rem;
+  text-align: center;
+  opacity: 0;
+  border: 1px solid rgb(229, 204, 181);
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+#tooltip.show {
+  opacity: 1;
+}

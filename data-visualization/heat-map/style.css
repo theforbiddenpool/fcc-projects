@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+hgroup {
+  text-align: center;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  border-radius: .5rem;
+  background-color: #000;
+  color: white;
+  padding: .5rem;
+  font-size: .9rem;
+  text-align: center;
+}
+
+.tooltip.show {
+  opacity: 0.7;
+}
+
+rect:hover {
+  stroke: #000;
+}

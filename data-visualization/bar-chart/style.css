@@ -1,0 +1,45 @@
+:root {
+  --main-background: rgba(61, 153, 189, 1);
+  --chart-background: rgba(0, 0, 0, 0.25);
+  --bar-fill: rgba(185, 255, 163, 1);
+  --tooltip-background: rgba(125, 234, 108, 0.7);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--main-background);
+}
+
+.chart {
+  background-color: var(--chart-background);
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.chart > h1 {
+  font-size: 2.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#bar-chart .bar {
+  fill: var(--bar-fill);
+}
+
+#tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--tooltip-background);
+  padding: 0.5rem;
+  border-radius: .25rem;
+  border: 1px solid black;
+  top: 0;
+  left: 0;
+}
+
+#tooltip.show {
+  visibility: visible;
+}

@@ -1,0 +1,21 @@
+body {
+  user-select: none;
+}
+
+.dot {
+  stroke: #000;
+  opacity: 0.8;
+}
+
+.axis-label {
+  font-size: .75rem;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+}
+
+.tooltip.show {
+  opacity: 0.9;
+}

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0; padding: 0; border: 0;
+  background-color: #ccc;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header > #title {
+  font-size: 2.5rem;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: .75em;
+  padding: 1rem;
+}
+
+.graph {
+  margin-bottom: 3rem;
+}
+
+.tile-text {
+  font-size: 0.8rem;
+}
+
+#tooltip {
+  position: absolute;
+  opacity: 0;
+  border-radius: .5rem;
+  background-color: #000;
+  color: white;
+  padding: .5rem;
+  font-size: .9rem;
+  text-align: center;
+  max-width: 20em;
+}
+
+#tooltip.show {
+  opacity: 0.7;
+}

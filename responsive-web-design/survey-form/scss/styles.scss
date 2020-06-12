@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: center fixed no-repeat url(../assets/background-joannaKosinska-unsplash.jpg), linear-gradient(#969696, #969696);
+  background-size: cover;
+  background-blend-mode: multiply;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: white;
+  font-size: 1.1rem;
+}
+
+#page-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+
+  @media (max-width: 776px) {
+    width: 550px;
+  }
+  
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+}
+
+header {
+  text-align: center;
+  margin-top: 3rem;
+  text-shadow: 1px 2px 2px #000;
+
+  & > p {
+    font-weight: 200;
+    margin-top: .5em;
+    font-style: italic;
+  }
+}
+
+#survey-form {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 3.25em 3em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+
+  @media (max-width: 576px) {
+    border-radius: initial;
+  }
+
+  @media (max-width: 476px) {
+    padding: 3.25em 1em;
+  }
+
+  input, select, textarea, button {
+    font-family: inherit;
+    font-size: 0.9em;
+  }
+
+  fieldset {
+    margin: 1.5em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  label {
+    display: block;
+  }
+
+  .form-control {
+    display: block;
+    padding: .33em .45em;
+    margin-top: .5em;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #777;
+    transition: .1s border ease-in-out, .1s box-shadow ease-in-out;
+
+    &:focus {
+      border: 1px solid rgb(79, 142, 193);
+      box-shadow: 0 0 0 .2rem rgba(79, 142, 193, .25)
+    }
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    margin-right: 1em;
+  }
+
+  #submit {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: .5em 0;
+    border-radius: .15em;
+  }
+
+  .notes {
+    font-size: .75em;
+  }
+}

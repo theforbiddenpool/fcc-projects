@@ -1,0 +1,128 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+}
+
+.page-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(220px, 20vw) minmax(290px, 1fr);
+      grid-template-columns: minmax(220px, 20vw) minmax(290px, 1fr);
+}
+
+@media screen and (max-width: 720px) {
+  .page-wrapper {
+    -ms-grid-columns: minmax(290px, 1fr);
+        grid-template-columns: minmax(290px, 1fr);
+    -ms-grid-rows: 55px 1fr;
+        grid-template-rows: 55px 1fr;
+  }
+}
+
+#navbar {
+  width: 20vw;
+  min-width: 220px;
+  height: 100%;
+  border-right: 3px solid #555;
+  background-color: #d2ddad;
+  position: fixed;
+}
+
+@media screen and (max-width: 720px) {
+  #navbar {
+    height: 55px;
+    width: 100%;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-right: none;
+    border-bottom: 3px solid #555;
+  }
+}
+
+#navbar header, #navbar li {
+  padding: 1.25em 1rem;
+}
+
+#navbar header {
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+@media screen and (max-width: 720px) {
+  #navbar header {
+    padding: 0;
+  }
+}
+
+#navbar ul {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 720px) {
+  #navbar ul {
+    display: none;
+  }
+}
+
+#navbar li {
+  display: block;
+  border-top: 1px solid #000;
+  list-style: none;
+  width: 100%;
+}
+
+#navbar .nav-link {
+  text-decoration: none;
+  color: #58662b;
+}
+
+#main-doc {
+  margin-left: 1rem;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+#main-doc .main-section {
+  margin-bottom: 2.5rem;
+}
+
+#main-doc .main-section article {
+  margin-left: 1rem;
+}
+
+#main-doc header {
+  font-size: 1.5rem;
+  color: #58662b;
+}
+
+#main-doc code {
+  padding: 1rem;
+  margin: 0 1rem;
+  background-color: #f0f0f0;
+  border-radius: .25rem;
+  white-space: pre;
+  line-height: 2;
+  color: #333;
+  display: block;
+}
+
+#main-doc li {
+  margin-bottom: .5rem;
+}

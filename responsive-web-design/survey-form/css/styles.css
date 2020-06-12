@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: center fixed no-repeat url(../assets/background-joannaKosinska-unsplash.jpg), -webkit-gradient(linear, left top, left bottom, from(#969696), to(#969696));
+  background: center fixed no-repeat url(../assets/background-joannaKosinska-unsplash.jpg), linear-gradient(#969696, #969696);
+  background-size: cover;
+  background-blend-mode: multiply;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: white;
+  font-size: 1.1rem;
+}
+
+#page-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+@media (max-width: 776px) {
+  #page-wrapper {
+    width: 550px;
+  }
+}
+
+@media (max-width: 576px) {
+  #page-wrapper {
+    width: 100%;
+  }
+}
+
+header {
+  text-align: center;
+  margin-top: 3rem;
+  text-shadow: 1px 2px 2px #000;
+}
+
+header > p {
+  font-weight: 200;
+  margin-top: .5em;
+  font-style: italic;
+}
+
+#survey-form {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 3.25em 3em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+}
+
+@media (max-width: 576px) {
+  #survey-form {
+    border-radius: initial;
+  }
+}
+
+@media (max-width: 476px) {
+  #survey-form {
+    padding: 3.25em 1em;
+  }
+}
+
+#survey-form input, #survey-form select, #survey-form textarea, #survey-form button {
+  font-family: inherit;
+  font-size: 0.9em;
+}
+
+#survey-form fieldset {
+  margin: 1.5em 0;
+}
+
+#survey-form fieldset:first-child {
+  margin-top: 0;
+}
+
+#survey-form label {
+  display: block;
+}
+
+#survey-form .form-control {
+  display: block;
+  padding: .33em .45em;
+  margin-top: .5em;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #777;
+  -webkit-transition: .1s border ease-in-out, .1s box-shadow ease-in-out;
+  transition: .1s border ease-in-out, .1s box-shadow ease-in-out;
+}
+
+#survey-form .form-control:focus {
+  border: 1px solid #4f8ec1;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(79, 142, 193, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(79, 142, 193, 0.25);
+}
+
+#survey-form input[type="checkbox"], #survey-form input[type="radio"] {
+  margin-right: 1em;
+}
+
+#survey-form #submit {
+  width: 100%;
+  background-color: green;
+  color: white;
+  padding: .5em 0;
+  border-radius: .15em;
+}
+
+#survey-form .notes {
+  font-size: .75em;
+}

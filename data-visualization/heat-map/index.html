@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Heat Map</title>
+</head>
+<body>
+  <div class="page-wrapper">
+    <hgroup>
+      <h1 id="title">Montly Global Land-Surface Temperature</h1>
+      <h3 id="description">1753-2015: base temperature <span id="baseTemperature"></span></h3>
+    </hgroup>
+    <section class="graph-container">
+      <svg id="heatmap"></svg>
+      <div id="tooltip" class="tooltip"></div>
+    </section>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
