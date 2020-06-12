@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fcc-markdownpreviewer/static/css/main.f3b330f7.chunk.css",
+    "main.js": "/fcc-markdownpreviewer/static/js/main.fe3f05c8.chunk.js",
+    "main.js.map": "/fcc-markdownpreviewer/static/js/main.fe3f05c8.chunk.js.map",
+    "runtime-main.js": "/fcc-markdownpreviewer/static/js/runtime-main.2ab47d94.js",
+    "runtime-main.js.map": "/fcc-markdownpreviewer/static/js/runtime-main.2ab47d94.js.map",
+    "static/js/2.04bf934f.chunk.js": "/fcc-markdownpreviewer/static/js/2.04bf934f.chunk.js",
+    "static/js/2.04bf934f.chunk.js.map": "/fcc-markdownpreviewer/static/js/2.04bf934f.chunk.js.map",
+    "index.html": "/fcc-markdownpreviewer/index.html",
+    "precache-manifest.5d1b3ad9ff525dddbf8750ee5ec95014.js": "/fcc-markdownpreviewer/precache-manifest.5d1b3ad9ff525dddbf8750ee5ec95014.js",
+    "service-worker.js": "/fcc-markdownpreviewer/service-worker.js",
+    "static/css/main.f3b330f7.chunk.css.map": "/fcc-markdownpreviewer/static/css/main.f3b330f7.chunk.css.map",
+    "static/js/2.04bf934f.chunk.js.LICENSE.txt": "/fcc-markdownpreviewer/static/js/2.04bf934f.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/fcc-markdownpreviewer/static/media/slkscr-webfont.78af67b9.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2ab47d94.js",
+    "static/js/2.04bf934f.chunk.js",
+    "static/css/main.f3b330f7.chunk.css",
+    "static/js/main.fe3f05c8.chunk.js"
+  ]
+}
