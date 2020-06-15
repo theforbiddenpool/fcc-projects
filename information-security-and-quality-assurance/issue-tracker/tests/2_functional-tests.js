@@ -29,19 +29,56 @@ suite('Functional Tests', function() {
         })
         .end(function(err, res){
           assert.equal(res.status, 200);
-          
-          //fill me in too!
+          assert.equal(res.body.issue_title, 'Title')
+          assert.equal(res.body.issue_text, 'text')
+          assert.equal(res.body.created_by, 'Functional Test - Every field filled in')
+          assert.equal(res.body.assigned_to, 'Chai and Mocha')
+          assert.equal(res.body.status_text, 'In QA')
+          assert.approximately(new Date(res.body.created_on).getTime(), Date.now(), 5000)
+          assert.approximately(new Date(res.body.updated_on).getTime(), Date.now(), 5000)
+          assert.isTrue(res.body.open)
+          assert.isNotNull(res.body._id)
           
           done();
         });
       });
       
       test('Required fields filled in', function(done) {
-        
+        chai.request(sever)
+          .post('/api/issues/test')
+          .send({
+            issue_title: 'Title',
+            issue_text: 'Functional Test - Required fields filled in',
+            created_by: 'me'
+          })
+          .end((err, res) => {
+            assert.equal(res.status, 200)
+            assert.equal(res.body.issue_title, 'Title')
+            assert.equal(res.body.issue_text, 'Functional Test - Required fields filled in')
+            assert.equal(res.body.created_by, 'me')
+            assert.isNull(res.body.assigned_to)
+            assert.isNull(res.body.status_text)
+            assert.approximately(new Date(res.body.created_on).getTime(), Date.now(), 5000)
+            assert.approximately(new Date(res.body.updated_on).getTime(), Date.now(), 5000)
+            assert.isTrue(res.body.open)
+            assert.isNotNull(res.body._id)
+            done()
+          })
       });
       
       test('Missing required fields', function(done) {
-        
+        chai.request(server)
+          .post('/api/issues/test')
+          .send({
+            issue_title: '',
+            issue_text: '',
+            created_by: ''
+          })
+          .end((err, res) => {
+            assert.equal(res.status, 400)
+            assert.equal(res.body, 'required fields missing')
+            done()
+          })
       });
       
     });
@@ -49,15 +86,15 @@ suite('Functional Tests', function() {
     suite('PUT /api/issues/{project} => text', function() {
       
       test('No body', function(done) {
-        
+        done()
       });
       
       test('One field to update', function(done) {
-        
+        done()
       });
       
       test('Multiple fields to update', function(done) {
-        
+        done()
       });
       
     });
@@ -85,11 +122,11 @@ suite('Functional Tests', function() {
       });
       
       test('One filter', function(done) {
-        
+        done()
       });
       
       test('Multiple filters (test for multiple fields you know will be in the db for a return)', function(done) {
-        
+        done()
       });
       
     });
@@ -97,11 +134,11 @@ suite('Functional Tests', function() {
     suite('DELETE /api/issues/{project} => text', function() {
       
       test('No _id', function(done) {
-        
+        done()
       });
       
       test('Valid _id', function(done) {
-        
+        done()
       });
       
     });
