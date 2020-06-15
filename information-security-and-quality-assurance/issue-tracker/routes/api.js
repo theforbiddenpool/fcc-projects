@@ -33,9 +33,20 @@ module.exports = function (app) {
 
   app.route('/api/issues/:project')
   
-    .get(function (req, res){
-      var project = req.params.project;
+    .get(async function (req, res){
+      const project = req.params.project;
+
+      if(req.query.open) {
+        req.query.open = (req.query.open == 'true') ? true : false
+      }
       
+      try {
+        const docs = await db.collection('issues').find({ project, ...req.query }).toArray()
+        
+        res.json(docs)
+      } catch {
+        sendInternalError(res)
+      }
     })
     
     .post(async function (req, res){
