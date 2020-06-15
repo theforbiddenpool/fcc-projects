@@ -86,9 +86,12 @@ module.exports = function (app) {
           }}
         )
 
-        res.send('successfully updated')
-      } catch (err) {
-        console.error(err)
+        if(doc.lastErrorObject.updatedExisting) {
+          res.send('successfully updated')
+        } else {
+          sendBadRequest(res, _id+' does not exist')
+        }
+      } catch {
         sendInternalError(res, 'could not update '+_id)
       }
     })
