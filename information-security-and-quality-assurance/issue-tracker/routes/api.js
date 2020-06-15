@@ -23,10 +23,10 @@ function sendBadRequest(res, message) {
     .send(message)
 }
 
-function sendInternalError(res) {
+function sendInternalError(res, message = 'Database error') {
   res.status(500)
     .type('text')
-    .send('Database error')
+    .send(message)
 }
 
 module.exports = function (app) {
