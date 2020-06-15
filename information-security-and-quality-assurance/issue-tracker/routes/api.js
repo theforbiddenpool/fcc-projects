@@ -13,7 +13,7 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
 let db;
 
-MongoClient.connect(process.env.MONGO_URI)
+MongoClient.connect(process.env.MONGO_URI, { useUnifiedTopology: true })
   .then(client => db = client.db('issue-tracker'))
   .catch(error => console.error(err))
 
@@ -88,15 +88,15 @@ module.exports = function (app) {
       }
 
       try {
-        const doc = await db.collection('issues').findAndModify(
+        const doc = await db.collection('issues').findOneAndUpdate(
           { _id: new ObjectId(_id) },
-          {},
           { $set: {
             updated_on: new Date(),
             ...toUpdateFields
           }}
         )
 
+        console.log(doc)
         if(doc.lastErrorObject.updatedExisting) {
           res.send('successfully updated')
         } else {
