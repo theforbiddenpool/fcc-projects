@@ -84,7 +84,7 @@ suite('Functional Tests', function() {
     });
     
     suite('PUT /api/issues/{project} => text', function() {
-      const PROJECT_ID = '5ee77da715b49fe63fe985dc'
+      const PROJECT_ID = '5ee77da715b49fe63fe100dc'
       
       test('No body', function(done) {
         chai.request(server)
@@ -167,7 +167,7 @@ suite('Functional Tests', function() {
     });
     
     suite('DELETE /api/issues/{project} => text', function() {
-      const PROJECT_ID = '5ee77da715b49fe63fe985dc'
+      const PROJECT_ID = '5ee77e3002f54ae7b7fb037c'
       
       test('No _id', function(done) {
         chai.request(server)
@@ -175,7 +175,7 @@ suite('Functional Tests', function() {
           .send({ _id: '' })
           .end((err, res) => {
             assert.equal(res.status, 400)
-            assert.equal(res.body, '_id error')
+            assert.equal(res.text, '_id error')
             done()
           })
       });
@@ -186,9 +186,9 @@ suite('Functional Tests', function() {
           .send({ _id: PROJECT_ID })
           .end((err, res) => {
             if(res.status == 200)
-              assert.equal(res.body, 'deleted '+PROJECT_ID)
+              assert.equal(res.text, 'deleted '+PROJECT_ID)
             else if(res.status == 500)
-              assert.equal(res.body, 'could not delete'+PROJECT_ID)
+              assert.equal(res.text, 'could not delete'+PROJECT_ID)
             done()
           })
       });
