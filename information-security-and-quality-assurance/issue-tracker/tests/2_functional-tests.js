@@ -44,7 +44,7 @@ suite('Functional Tests', function() {
       });
       
       test('Required fields filled in', function(done) {
-        chai.request(sever)
+        chai.request(server)
           .post('/api/issues/test')
           .send({
             issue_title: 'Title',
@@ -56,8 +56,8 @@ suite('Functional Tests', function() {
             assert.equal(res.body.issue_title, 'Title')
             assert.equal(res.body.issue_text, 'Functional Test - Required fields filled in')
             assert.equal(res.body.created_by, 'me')
-            assert.isNull(res.body.assigned_to)
-            assert.isNull(res.body.status_text)
+            assert.isUndefined(res.body.assigned_to, '')
+            assert.isUndefined(res.body.status_text, '')
             assert.approximately(new Date(res.body.created_on).getTime(), Date.now(), 5000)
             assert.approximately(new Date(res.body.updated_on).getTime(), Date.now(), 5000)
             assert.isTrue(res.body.open)
@@ -76,7 +76,7 @@ suite('Functional Tests', function() {
           })
           .end((err, res) => {
             assert.equal(res.status, 400)
-            assert.equal(res.body, 'required fields missing')
+            assert.equal(res.text, 'required fields missing')
             done()
           })
       });
