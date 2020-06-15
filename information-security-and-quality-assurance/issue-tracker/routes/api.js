@@ -96,9 +96,25 @@ module.exports = function (app) {
       }
     })
     
-    .delete(function (req, res){
-      var project = req.params.project;
+    .delete(async function (req, res){
+      const project = req.params.project;
       
+      if(!req.body._id) {
+        sendBadRequest(res, '_id error')
+        return
+      }
+
+      try {
+        const doc = await db.collection('issues').deleteOne({ _id: new ObjectId(req.body._id )})
+
+        if(doc.deletedCount == 0) {
+          res.send(req.body._id+' does not exist')
+        } else {
+          res.send('deleted '+req.body._id)
+        }
+      } catch {
+        sendInternalError(res, 'could not delete '+req.body._id)
+      }
     });
     
 };
