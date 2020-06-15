@@ -61,9 +61,36 @@ module.exports = function (app) {
       }
     })
     
-    .put(function (req, res){
-      var project = req.params.project;
+    .put(async function (req, res){
+      const project = req.params.project;
       
+      if(!req.body._id || Object.keys(req.body).length <= 1) {
+        sendBadRequest(res, 'no updated field sent')
+        return
+      }
+
+      const { _id, ...toUpdateFields } = req.body
+      for(const key in toUpdateFields) {
+        if(!toUpdateFields[key]) {
+          delete toUpdateFields[key]
+        }
+      }
+
+      try {
+        const doc = await db.collection('issues').findAndModify(
+          { _id: new ObjectId(_id) },
+          {},
+          { $set: {
+            updated_on: new Date(),
+            ...toUpdateFields
+          }}
+        )
+
+        res.send('successfully updated')
+      } catch (err) {
+        console.error(err)
+        sendInternalError(res, 'could not update '+_id)
+      }
     })
     
     .delete(function (req, res){
