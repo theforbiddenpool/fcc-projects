@@ -8,11 +8,26 @@
 
 'use strict';
 
-var expect = require('chai').expect;
-var MongoClient = require('mongodb');
-var ObjectId = require('mongodb').ObjectID;
+const expect = require('chai').expect;
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
+let db;
 
-const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+MongoClient.connect(process.env.MONGO_URI)
+  .then(client => db = client.db('issue-tracker'))
+  .catch(error => console.error(err))
+
+function sendBadRequest(res, message) {
+  res.status(400)
+    .type('text')
+    .send(message)
+}
+
+function sendInternalError(res) {
+  res.status(500)
+    .type('text')
+    .send('Database error')
+}
 
 module.exports = function (app) {
 
