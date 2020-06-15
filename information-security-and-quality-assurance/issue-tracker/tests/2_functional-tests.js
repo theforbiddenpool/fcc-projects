@@ -84,17 +84,52 @@ suite('Functional Tests', function() {
     });
     
     suite('PUT /api/issues/{project} => text', function() {
+      const PROJECT_ID = '5ee77da715b49fe63fe985dc'
       
       test('No body', function(done) {
-        done()
+        chai.request(server)
+          .put('/api/issues/test')
+          .send({
+            _id: PROJECT_ID
+          })
+          .end((err, res) => {
+            assert.equal(res.status, 400)
+            assert.equal(res.text, 'no updated field sent')
+            done()
+          })
       });
       
       test('One field to update', function(done) {
-        done()
+        chai.request(server)
+          .put('/api/issues/test')
+          .send({
+            _id: PROJECT_ID,
+            open: false
+          })
+          .end((err, res) => {
+            if(res.status == 200)
+              assert.equal(res.text, 'successfully updated')
+            else if(res.status == 500)
+              assert.equal(res.text, 'could not update '+PROJECT_ID)
+            done()
+          })
       });
       
       test('Multiple fields to update', function(done) {
-        done()
+        chai.request(server)
+          .put('/api/issues/test')
+          .send({
+            _id: PROJECT_ID,
+            issue_title: 'This is an updated issue',
+            assigned_to: 'anotherUser'
+          })
+          .end((err, res) => {
+            if(res.status == 200)
+              assert.equal(res.text, 'successfully updated')
+            else if(res.status == 500)
+              assert.equal(res.text, 'could not update '+PROJECT_ID)
+            done()
+          })
       });
       
     });
