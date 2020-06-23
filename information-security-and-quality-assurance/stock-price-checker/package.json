@@ -4,11 +4,11 @@
 	"description": "What am I about?",
 	"main": "server.js",
 	"scripts": {
-		"start": "node -r dontenv/config server.js"
+		"start": "node -r dotenv/config server.js"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
-		"chai": "^3.5.0",
+		"chai": "^4.2.0",
 		"chai-http": "^4.3.0",
 		"cors": "^2.8.1",
 		"dotenv": "^8.2.0",
@@ -16,7 +16,8 @@
 		"got": "^11.3.0",
 		"helmet": "^3.1.0",
 		"mocha": "^8.0.1",
-		"mongodb": "^3.5.9"
+		"mongodb": "^3.5.9",
+		"cookie-parser": "^1.4.5"
 	},
 	"engines": {
 		"node": "12.x"
