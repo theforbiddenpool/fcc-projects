@@ -3,18 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Web Design Projects</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <title>Responsive Web Design Projects - FCC Projects</title>
 </head>
 <body>
-  <section>
-    <h1>Responsive Web Design Certification Projects</h1>
-    <ol>
-      <li><a href="responsive-web-design/tribute-page/">Tribute Page</a></li>
-      <li><a href="responsive-web-design/survey-form/">Survey Form</a></li>
-      <li><a href="responsive-web-design/product-landing-page/">Product Landing</a></li>
-      <li><a href="responsive-web-design/technical-documentation-page/">Technical Documentation Page</a></li>
-      <li><a href="responsive-web-design/personal-portfolio/">Personal Portfolio</a></li>
-    </ol>
-  </section>
+  <div class="h-screen flex flex-col" id="rwb">
+    <header class="text-center w-full">
+      <h1 class="text-4xl pt-10 px-6 mb-10 border-b inline-block">Responsive Web Design Certification Projects</h1>
+    </header>
+    <section class="galery container mx-auto flex-grow">
+      <ol class="grid gap-6">
+        <li class="card">
+          <a href="tribute-page/">
+            <img src="../assets/rwd/tributepage.png" width="600" alt="tribute page project screenshot">
+            <div class="card-title">
+            	<span class="bracket">&#60;</span> Tribute Page <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="survey-form/">
+            <img src="../assets/rwd/surveyform.png" width="600" alt="survey form project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Survey Form <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="product-landing-page/">
+            <img src="../assets/rwd/productlandingpage.png" width="600" alt="product landing page project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Product Landing <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="technical-documentation-page/">
+            <img src="../assets/rwd/technicaldocumentationpage.png" width="600" alt="technical documentation page project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Technical Documentation Page <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="personal-portfolio/">
+            <img src="../assets/rwd/personalportfolio.png" width="600" alt="personal portfolio project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Personal Portfolio <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="navigation w-1/5 text-center">
+          <a href=".." class="arrow text-2xl block">←</a>
+        </li>
+      </ol>
+    </section>
+  </div>
+  <script src="../scripts.js"></script>
 </body>
 </html>

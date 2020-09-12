@@ -3,18 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Front End Libraries Projects</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <title>Front End Libraries Projects - FCC Projects</title>
 </head>
 <body>
-  <section>
-    <h1>Front End Libraries Certification Projects</h1>
-    <ol>
-      <li><a href="random-quote-machine/">Random Quote Machine</a></li>
-      <li><a href="markdown-previewer/">Markdown Previewer</a></li>
-      <li><a href="drum-machine/">Drum Machine</a></li>
-      <li><a href="javascript-calculator/">JavaScript Calculator</a></li>
-      <li><a href="pomodoro-clock/">Pomodoro Clock</a></li>
-    </ol>
-  </section>
+  <div class="h-screen flex flex-col" id="fel">
+    <header class="text-center w-full">
+      <h1 class="text-4xl pt-10 px-6 mb-10 border-b border-white inline-block">Front End Libraries Certification Projects</h1>
+    </header>
+    <section class="galery container mx-auto flex-grow">
+      <ol class="grid gap-6">
+        <li class="card">
+          <a href="random-quote-machine/">
+            <img src="../assets/fel/randomquotemachine.png" width="600" alt="random quote machine project screenshot">
+            <div class="card-title">
+            	<span class="bracket">&#60;</span> Random Quote Machine <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="markdown-previewer/">
+            <img src="../assets/fel/markdownpreviewer.png" width="600" alt="markdown previewer project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Markdown Previewer <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="drum-machine/">
+            <img src="../assets/fel/drummachine.png" width="600" alt="drum machine project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Drum Machine <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="javascript-calculator/">
+            <img src="../assets/fel/javascriptcalculator.png" width="600" alt="javascript calculator project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Javascript Calculator <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="card">
+          <a href="pomodoro-clock/">
+            <img src="../assets/fel/pomodoroclock.png" width="600" alt="pomodoro clock project screenshot">
+            <div class="card-title">
+              <span class="bracket">&#60;</span> Pomodoro Clock <span class="bracket">&#47;&#62;</span>
+            </div>
+          </a>
+        </li>
+        <li class="navigation w-1/5 text-center">
+          <a href=".." class="arrow text-2xl block">←</a>
+        </li>
+      </ol>
+    </section>
+  </div>
+  <script src="../scripts.js"></script>
 </body>
 </html>
