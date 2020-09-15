@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="@theforbiddenpool's FreeCodeCamp Responsive Web Design Certification projects galery"></head>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <title>Responsive Web Design Projects - FCC Projects</title>
@@ -12,7 +13,7 @@
     <header class="text-center w-full">
       <h1 class="text-4xl pt-8 mx-4 md:px-6 pb-3 mb-10 border-b inline-block">Responsive Web Design Certification Projects</h1>
     </header>
-    <section class="galery px-2 mb-2 xl:px-0 md:mb-0 container mx-auto flex-grow">
+    <main class="galery px-2 mb-2 xl:px-0 md:mb-0 container mx-auto flex-grow">
       <ol class="grid gap-2 md:gap-6">
         <li class="card">
           <a href="tribute-page/">
@@ -55,10 +56,13 @@
           </a>
         </li>
         <li class="navigation w-1/5 text-center">
-          <a href=".." class="arrow text-2xl block">←</a>
+          <a href=".." class="arrow text-2xl block">
+            ←
+            <span class="sr-only">Back to galery</span>
+          </a>
         </li>
       </ol>
-    </section>
+    </main>
   </div>
   <script src="../scripts.js"></script>
 </body>

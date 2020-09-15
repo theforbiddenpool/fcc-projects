@@ -175,6 +175,17 @@ body > div {
   background-repeat: fixed;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 @media screen and (max-width: 768px) {
   header > h1 {
     border-bottom-width: 3px !important;
