@@ -174,3 +174,9 @@
 body > div {
   background-repeat: fixed;
 }
+
+@media screen and (max-width: 768px) {
+  header > h1 {
+    border-bottom-width: 3px !important;
+  }
+}
