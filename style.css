@@ -82,7 +82,7 @@
 }
 
 #rwb {
-  background: linear-gradient(135deg, #2BCED6, #005459);
+  background-image: linear-gradient(135deg, #2BCED6, #005459);
 }
 
 #rwb header > h1 {
@@ -169,4 +169,8 @@
 
 #isqa .galery .card-title > .bracket {
   color: #276749;
+}
+
+body > div {
+  background-repeat: fixed;
 }
