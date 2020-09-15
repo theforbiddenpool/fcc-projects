@@ -7,23 +7,23 @@
 }
 
 .panel:nth-of-type(1) {
-  background-image: url(assets/halacious-tZc3vjPCk-Q-unsplash.jpg);
+  background-image: url(assets/halacious-tZc3vjPCk-Q-unsplash_cut.jpg);
 }
 
 .panel:nth-of-type(2) {
-  background-image: url(assets/filiberto-santillan-1HCb2gPk3ik-unsplash.jpg);
+  background-image: url(assets/filiberto-santillan-1HCb2gPk3ik-unsplash_cut.jpg);
 }
 
 .panel:nth-of-type(3) {
-  background-image: url(assets/lukas-blazek-mcSDtbWXUZU-unsplash.jpg);
+  background-image: url(assets/lukas-blazek-mcSDtbWXUZU-unsplash_cut.jpg);
 }
 
 .panel:nth-of-type(4) {
-  background-image: url(assets/taylor-vick-M5tzZtFCOfs-unsplash.jpg);
+  background-image: url(assets/taylor-vick-M5tzZtFCOfs-unsplash_cut.jpg);
 }
 
 .panel:nth-of-type(5) {
-  background-image: url(assets/debby-hudson-atW3fbSy_9Y-unsplash.jpg);
+  background-image: url(assets/debby-hudson-atW3fbSy_9Y-unsplash_cut.jpg);
 }
 
 .panel > a {
