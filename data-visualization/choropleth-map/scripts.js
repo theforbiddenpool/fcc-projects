@@ -49,8 +49,6 @@ window.addEventListener('load', () => {
       .attr("d", path)
     
     displayGraphLegend()
-
-    console.log(educationData)
   })
 
 
@@ -91,6 +89,4 @@ function displayGraphLegend() {
   legend.append('g')
     .call(xLegendAxis)
     .select('.domain').remove()
-  
-  console.log(rectWidth * color.range().length)
 }
