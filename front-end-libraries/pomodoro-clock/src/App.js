@@ -7,7 +7,7 @@ import { TimerLengthControls } from './components/TimerLengthControls';
 const App = () => {
   const [breakLength, setBreakLength] = useState(5)
   const [sessionLength, setSessionLength] = useState(25)
-  const [ isTimerRunning, setIsTimerRunning ] = useState(false)
+  const [isTimerRunning, setIsTimerRunning] = useState(false)
 
   function decrement(e) {
     const elId = e.currentTarget.id

@@ -5,8 +5,8 @@ import { useAccurateInterval } from '../hooks/useAccurateInterval'
 import { Display } from './Display'
 
 export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, setIsTimerRunning, handleReset }) => {
-  const [ secondsLeft, setSecondsLeft ] = useState(sessionLength * 60) // 25 minutes
-  const [ label, setLabel ] = useState('Session')
+  const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60) // 25 minutes
+  const [label, setLabel] = useState('Session')
 
   const beepSound = useRef(null)
   
