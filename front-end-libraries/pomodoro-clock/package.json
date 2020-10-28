@@ -1,6 +1,6 @@
 {
   "name": "fcc-pomodoroclock",
-  "homepage": "http://theforbiddenpool.github.io/fcc-pomodoroclock",
+  "homepage": "https://theforbiddenpool.github.io/fcc-projects/front-end-libraries/pomodoro-clock/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
