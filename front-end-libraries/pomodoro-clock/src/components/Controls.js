@@ -3,7 +3,7 @@ import { FaMinus, FaPlus, FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 
 export const LengthControl = ({ id, label, length, handleChange }) => (
   <div className="length-control">
-    <h2 id={ `${id}-label` }>{ label }</h2>
+    <h2 id={ `${id}-label` } class="control-label">{ label }</h2>
     <div className="controls">
       <button data-value="-1" id={ `${id}-decrement` } onClick={ handleChange }>
         <i><FaMinus /></i>

@@ -7,28 +7,42 @@
        url('./fonts/Digital.woff') format('woff')
 }
 
-$main-color: #97ebdb;
-$main-color-darker: #00c2c7;
-$main-color-dark: #005582;
+$main-blue: #0B5F73;
+$darker-blue: #0A4B5B;
+$light-red: #E44E4E;
+$medium-red: #CC3C3C;
+$darker-red: #9c2c2c;
 $white: #fefffb;
 $grey: #e9eae5;
-$red: #7b0c0c;
+$black: #000;
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   padding: 0;
   margin: 0;
-  background: linear-gradient(-45deg, $main-color, $main-color-darker);
-  background-color: $main-color;
+  background: linear-gradient(-45deg, $main-blue, $darker-blue);
+  background-color: $main-blue;
+  line-height: 1.2;
 }
 
 button {
   border: 0;
-  background-color: $grey;
-  padding: .5rem;
-  margin: 0 .25rem;
-  border-radius: .25rem;
+  background-color: $light-red;
+  padding: .33em .5em;
+  margin: 0 .25em;
+  border-radius: .25em;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: $darker-red;
+    color: $white;
+    border-color: $medium-red;
+  }
 }
 
 #root {
@@ -40,10 +54,9 @@ button {
 
 .page-wrapper {
   background-color: $white;
-  padding: 2rem 4rem;
-  border: 3px solid $main-color-darker;
-  box-shadow: 3px 3px 2px 2px rgba($main-color-darker, 0.5);
-  border-radius: 1rem;
+  border: 3px solid $darker-blue;
+  box-shadow: 3px 3px 2px 2px rgba($darker-blue, 0.5);
+  // border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,14 +64,29 @@ button {
 }
 
 header {
-  color: $red;
   font-family: 'Spartan', Verdana, Geneva, Tahoma, sans-serif;
+  background-color: $medium-red;
+  border-bottom: 1px solid $light-red;
+  color: $white;
+  width: 100%;
+}
+
+main {
+  padding: 1.5em 3em;
 }
 
 .timerlength-controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
   grid-gap: 1rem;
+
+  .control-label {
+    font-weight: 400;
+    font-size: 1.25rem;
+    background-color: $grey;
+    padding: .33em .75em;
+    margin: .5em 0;
+  }
 
   button {
     margin: 0 .75rem;
@@ -73,13 +101,19 @@ header {
 
   .timer-display {
     background-color: $grey;
-    border: .33rem solid $red;
-    border-radius: .5rem;
-    padding: .5rem 3rem;
+    // border: .33rem solid $darker-red;
+    // border-radius: .5rem;
+    // padding: .5rem 3rem;
     min-width: 100px;
 
     & > h2 {
-      color: $red;
+      background-color: $darker-red;
+      border-bottom: 1px solid $medium-red;
+      width: 100%;
+      display: block;
+      margin: 0;
+      padding: .33em;
+      color: $white;
     }
 
     & > p {
@@ -90,7 +124,17 @@ header {
     }
   }
 
-  button {
-    padding: .5rem 1rem;
+  .timer-controls > button {
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: $darker-red;
+    color: $white;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: $light-red;
+      color: $grey;
+      border-color: $medium-red;
+    }
   }
 }
