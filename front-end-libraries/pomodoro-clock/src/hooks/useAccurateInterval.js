@@ -6,14 +6,6 @@ export const useAccurateInterval = (fn, interval = 1000) => {
   const timeout = useRef()
   const expected = useRef()
   
-  function start() {
-    setIsRunning(true)
-  }
-
-  function stop() {
-    setIsRunning(false)
-  }
-
   useEffect(() => {
     savedCallback.current = fn
   })
@@ -38,6 +30,7 @@ export const useAccurateInterval = (fn, interval = 1000) => {
   }, [isRunning, interval])
 
   return { 
-    timer: { start, stop }
+    startInterval: () => setIsRunning(true),
+    stopInterval: () => setIsRunning(false)
   }
 }

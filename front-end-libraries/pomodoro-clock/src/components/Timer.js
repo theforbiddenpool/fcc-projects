@@ -10,7 +10,7 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
 
   const beepSound = useRef(null)
   
-  const { timer } = useAccurateInterval(() => setSecondsLeft(secondsLeft - 1))
+  const { startInterval, stopInterval } = useAccurateInterval(() => setSecondsLeft(secondsLeft - 1))
 
   useLayoutEffect(() => {
     if(isTimerRunning) return
@@ -31,7 +31,7 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
   }
 
   function reset() {
-    timer.stop()
+    stopInterval()
     setLabel('Session')
     setSecondsLeft(sessionLength * 60)
     beepSound.current.pause()
@@ -54,12 +54,12 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
   }, [secondsLeft])
 
   function startTimer() {
-    timer.start()
+    startInterval()
     setIsTimerRunning(true)
   }
 
   function stopTimer() {
-    timer.stop()
+    stopInterval()
     setIsTimerRunning(false)
   }
   
