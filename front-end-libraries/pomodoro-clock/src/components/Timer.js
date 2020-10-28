@@ -3,7 +3,7 @@ import { FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 
 import { useAccurateInterval } from '../hooks/useAccurateInterval'
 import { Display } from './Display'
-import { LengthControl } from './LengthControl'
+import { LengthControl, TimerControls } from './Controls'
 
 export const Timer = () => {
   const [breakLength, setBreakLength] = useState(5)
@@ -26,7 +26,7 @@ export const Timer = () => {
     }
   }, [sessionLength, breakLength])
 
-  function handleStartStop() {
+  function startStop() {
     if(isIntervalRunning) {
       stopInterval()
     } else {
@@ -86,16 +86,7 @@ export const Timer = () => {
       </section>
       <section className="timer">
         <Display label={ label } secondsLeft={ secondsLeft } />
-        <div className="timer-controls">
-          <button id="start_stop" onClick={handleStartStop}>
-            <i>
-              { isIntervalRunning ? <FaPause /> : <FaPlay />}
-            </i>
-          </button>
-          <button id="reset" onClick={reset}>
-            <i><FaUndo /></i>
-          </button>
-        </div>
+        <TimerControls handleStartStop={ startStop } isIntervalRunning={ isIntervalRunning } handleReset={ reset } />
         <audio ref={beepSound} id="beep" src="https://goo.gl/65cBl1"></audio>
       </section>
     </main>

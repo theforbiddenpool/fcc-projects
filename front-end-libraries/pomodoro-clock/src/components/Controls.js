@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaMinus, FaPlus } from 'react-icons/fa'
+import { FaMinus, FaPlus, FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 
 export const LengthControl = ({ label, length, handleChange }) => (
   <div className="length-control">
@@ -13,5 +13,18 @@ export const LengthControl = ({ label, length, handleChange }) => (
         <i><FaPlus /></i>
       </button>
     </div>
+  </div>
+)
+
+export const TimerControls = ({ handleStartStop, isIntervalRunning, handleReset }) => (
+  <div className="timer-controls">
+    <button id="start_stop" onClick={ handleStartStop }>
+      <i>
+        { isIntervalRunning ? <FaPause /> : <FaPlay /> }
+      </i>
+    </button>
+    <button id="reset" onClick={ handleReset }>
+      <i><FaUndo /></i>
+    </button>
   </div>
 )
