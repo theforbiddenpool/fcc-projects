@@ -3,8 +3,11 @@ import { FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 
 import { useAccurateInterval } from '../hooks/useAccurateInterval'
 import { Display } from './Display'
+import { LengthControl } from './LengthControl'
 
-export const Timer = ({ sessionLength = 25, breakLength = 5, handleReset }) => {
+export const Timer = () => {
+  const [breakLength, setBreakLength] = useState(5)
+  const [sessionLength, setSessionLength] = useState(25)
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60) // 25 minutes
   const [label, setLabel] = useState('Session')
 
@@ -37,7 +40,8 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, handleReset }) => {
     setSecondsLeft(sessionLength * 60)
     beepSound.current.pause()
     beepSound.current.currentTime = 0
-    handleReset()
+    setSessionLength(25)
+    setBreakLength(5)
   }
 
   useEffect(() => {
@@ -53,21 +57,47 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, handleReset }) => {
       }
     }
   }, [secondsLeft])
+
+  function isLengthValid(num, currentLength) {
+    return ((num > 0 && currentLength < 60) || (num < 0 && currentLength > 1))
+  }
+
+  function handleBreakChange(e) {
+    if(isIntervalRunning) return
+
+    const num = parseInt(e.currentTarget.dataset.value, 10)
+    if(!isLengthValid(num, breakLength)) return
+    setBreakLength(breakLength + num)
+  }
+  
+  function handleSessionChange(e) {
+    if(isIntervalRunning) return
+
+    const num = parseInt(e.currentTarget.dataset.value, 10)
+    if(!isLengthValid(num, sessionLength)) return
+    setSessionLength(sessionLength + num)
+  }
   
   return (
-    <section className="timer">
-      <Display label={ label } secondsLeft={ secondsLeft } />
-      <div className="timer-controls">
-        <button id="start_stop" onClick={handleStartStop}>
-          <i>
-            { isIntervalRunning ? <FaPause /> : <FaPlay />}
-          </i>
-        </button>
-        <button id="reset" onClick={reset}>
-          <i><FaUndo /></i>
-        </button>
-      </div>
-      <audio ref={beepSound} id="beep" src="https://goo.gl/65cBl1"></audio>
-    </section>
+    <main>
+      <section className="timerlength-controls">
+        <LengthControl label="Break Length" length={ breakLength } handleChange={ handleBreakChange } />
+        <LengthControl label="Session Length" length={ sessionLength } handleChange={ handleSessionChange } />
+      </section>
+      <section className="timer">
+        <Display label={ label } secondsLeft={ secondsLeft } />
+        <div className="timer-controls">
+          <button id="start_stop" onClick={handleStartStop}>
+            <i>
+              { isIntervalRunning ? <FaPause /> : <FaPlay />}
+            </i>
+          </button>
+          <button id="reset" onClick={reset}>
+            <i><FaUndo /></i>
+          </button>
+        </div>
+        <audio ref={beepSound} id="beep" src="https://goo.gl/65cBl1"></audio>
+      </section>
+    </main>
   )
 }
