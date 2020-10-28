@@ -31,6 +31,7 @@ export const useAccurateInterval = (fn, interval = 1000) => {
 
   return { 
     startInterval: () => setIsRunning(true),
-    stopInterval: () => setIsRunning(false)
+    stopInterval: () => setIsRunning(false),
+    isIntervalRunning: isRunning,
   }
 }

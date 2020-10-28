@@ -4,16 +4,17 @@ import { FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 import { useAccurateInterval } from '../hooks/useAccurateInterval'
 import { Display } from './Display'
 
-export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, setIsTimerRunning, handleReset }) => {
+export const Timer = ({ sessionLength = 25, breakLength = 5, handleReset }) => {
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60) // 25 minutes
   const [label, setLabel] = useState('Session')
 
   const beepSound = useRef(null)
   
-  const { startInterval, stopInterval } = useAccurateInterval(() => setSecondsLeft(secondsLeft - 1))
+  const { startInterval, stopInterval, isIntervalRunning } = useAccurateInterval(() => setSecondsLeft(secondsLeft - 1))
 
+  // I'm using layoutEffect here because otherwise it won't pass the FCC tests
   useLayoutEffect(() => {
-    if(isTimerRunning) return
+    if(isIntervalRunning) return
 
     if(label === 'Session') {
       setSecondsLeft(sessionLength * 60)
@@ -23,10 +24,10 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
   }, [sessionLength, breakLength])
 
   function handleStartStop() {
-    if(isTimerRunning) {
-      stopTimer()
+    if(isIntervalRunning) {
+      stopInterval()
     } else {
-      startTimer()
+      startInterval()
     }
   }
 
@@ -52,16 +53,6 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
       }
     }
   }, [secondsLeft])
-
-  function startTimer() {
-    startInterval()
-    setIsTimerRunning(true)
-  }
-
-  function stopTimer() {
-    stopInterval()
-    setIsTimerRunning(false)
-  }
   
   return (
     <section className="timer">
@@ -69,7 +60,7 @@ export const Timer = ({ sessionLength = 25, breakLength = 5, isTimerRunning, set
       <div className="timer-controls">
         <button id="start_stop" onClick={handleStartStop}>
           <i>
-            { isTimerRunning ? <FaPause /> : <FaPlay />}
+            { isIntervalRunning ? <FaPause /> : <FaPlay />}
           </i>
         </button>
         <button id="reset" onClick={reset}>
