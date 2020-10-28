@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
-import { FaPause, FaPlay, FaUndo } from 'react-icons/fa'
 
 import { useAccurateInterval } from '../hooks/useAccurateInterval'
 import { Display } from './Display'
@@ -45,7 +44,7 @@ export const Timer = () => {
   }
 
   useEffect(() => {
-    if(secondsLeft < 0) {
+    if(secondsLeft <= 0) {
       beepSound.current.play()
 
       if(label === 'Session') {
@@ -81,8 +80,8 @@ export const Timer = () => {
   return (
     <main>
       <section className="timerlength-controls">
-        <LengthControl label="Break Length" length={ breakLength } handleChange={ handleBreakChange } />
-        <LengthControl label="Session Length" length={ sessionLength } handleChange={ handleSessionChange } />
+        <LengthControl id="break" label="Break Length" length={ breakLength } handleChange={ handleBreakChange } />
+        <LengthControl id="session" label="Session Length" length={ sessionLength } handleChange={ handleSessionChange } />
       </section>
       <section className="timer">
         <Display label={ label } secondsLeft={ secondsLeft } />
