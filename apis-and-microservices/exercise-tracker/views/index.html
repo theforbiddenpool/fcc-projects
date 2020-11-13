@@ -3,21 +3,23 @@
   <head>
     <title>Exercise Tracker</title>
     <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="container">
       <h1>Exercise tracker</h1>
-      <form action="/api/exercise/new-user" method="post">
-        <h3>Create a New User</h3>
-        <p><code>POST /api/exercise/new-user</code></p>
-        <input id="uname" type="text" name="username" placeholder="username">
-        <input type="submit" value="Submit">
-      </form>
-      <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
-      <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
-      <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+      <div class="form-group">
+        <form action="/api/exercise/new-user" method="post">
+          <h3 class="form-title">Create a new user</h3>
+          <input id="uname" type="text" name="username" placeholder="Username" aria-label="Type the username">
+          <button type="submit">Sign Up</button>
+        </form>
+        <form action="/api/exercise/login">
+          <h3 class="form-title">Existing user</h3>
+          <input type="text" name="username" id="lg-username" placeholder="Username" aria-label="Type your username">
+          <button type="submit">Go</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
