@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(cors())
+app.set('view engine', 'pug')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -18,6 +19,8 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
 });
+
+app.use('/u', require('./routes/u'))
 
 const apiRouter = require('./routes/api')
 app.use('/api/exercise', apiRouter)

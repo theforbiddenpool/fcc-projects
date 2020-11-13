@@ -2,7 +2,7 @@ const router = require('express').Router()
 const user = require('../controllers/user')
 const exercise = require('../controllers/exercise')
 
-router.get('/test', (req, res) => res.send('I\'m here!'))
+router.get('/test', (req, res) => res.send('ready'))
 
 router.post('/new-user', (req, res, next) => {
   user.add(req.body)

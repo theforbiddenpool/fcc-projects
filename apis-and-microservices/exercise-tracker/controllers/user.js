@@ -13,8 +13,13 @@ const findById = (userId) => {
     .then(data => data)
 }
 
+const findByUsername = (username) => {
+  return User.findOne({ username }).select('_id username').exec()
+}
+
 module.exports = {
   getAll,
   add,
   findById,
+  findByUsername
 }
