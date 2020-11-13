@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const user = require('../models/users')
-const exercise = require('../models/exercises')
+const user = require('../controllers/user')
+const exercise = require('../controllers/exercise')
 
 router.get('/test', (req, res) => res.send('I\'m here!'))
 
