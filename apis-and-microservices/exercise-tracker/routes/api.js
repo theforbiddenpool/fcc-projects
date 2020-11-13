@@ -6,11 +6,20 @@ router.get('/test', (req, res) => res.send('ready'))
 
 router.post('/new-user', (req, res, next) => {
   user.add(req.body)
-    .then(({_id, username}) => res.json({ _id, username }))
+    .then(({ username }) => res.redirect(`/u/${username}`))
     .catch(err => (err.code == 11000) ? 
       next({ status: 400, message: 'username already taken' })
       : next(err)
     )
+})
+
+router.get('/login', (req, res, next) => {
+  user.findByUsername(req.query.username)
+    .then(({ username }) => (username) ?
+      res.redirect(`/u/${username}`)
+      : next({ status: 400, message: 'username doesn\'t not exist' })
+    )
+    .catch(err => next(err))
 })
 
 router.get('/users', (req, res) => {
