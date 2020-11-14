@@ -11,12 +11,12 @@
       <div class="form-group">
         <form action="/api/exercise/new-user" method="post">
           <h3 class="form-title">Create a new user</h3>
-          <input id="uname" type="text" name="username" placeholder="Username" aria-label="Type the username">
+          <input id="uname" type="text" name="username" placeholder="Username" aria-label="Type the username" required>
           <button type="submit">Sign Up</button>
         </form>
         <form action="/api/exercise/login">
           <h3 class="form-title">Existing user</h3>
-          <input type="text" name="username" id="lg-username" placeholder="Username" aria-label="Type your username">
+          <input type="text" name="username" id="lg-username" placeholder="Username" aria-label="Type your username" required>
           <button type="submit">Go</button>
         </form>
       </div>
