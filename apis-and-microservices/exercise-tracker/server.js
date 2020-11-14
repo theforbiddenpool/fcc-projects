@@ -42,6 +42,7 @@ app.use((err, req, res, next) => {
     errMessage = err.errors[keys[0]].message
   } else {
     // generic or custom error
+    console.error(err.stack)
     errCode = err.status || 500
     errMessage = err.message || 'Internal Server Error'
   }

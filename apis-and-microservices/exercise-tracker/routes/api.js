@@ -15,10 +15,13 @@ router.post('/new-user', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
   user.findByUsername(req.query.username)
-    .then(({ username }) => (username) ?
-      res.redirect(`/u/${username}`)
-      : next({ status: 400, message: 'username doesn\'t not exist' })
-    )
+    .then(({ _id, username }) => {
+      if(username) {
+        res.redirect(`/u/${username}`)
+      } else {
+        next({ status: 400, message: 'username doesn\'t not exist' })
+      }
+    })
     .catch(err => next(err))
 })
 
@@ -34,7 +37,7 @@ router.post('/add', (req, res, next) => {
 })
 
 router.get('/log', (req, res, next) => {
-  exercise.getByUserId(req.query)
+  exercise.getByUser(req.query)
     .then(data => res.json(data))
     .catch(err => next(err))
 })

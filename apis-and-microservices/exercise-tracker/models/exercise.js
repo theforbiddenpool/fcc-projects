@@ -43,7 +43,10 @@ exerciseSchema.pre('save', function(next) {
 })
 
 exerciseSchema.pre('find', function(next) {
-  user.findById(this._conditions.userId)
+  user.findUser({
+    userId: this._conditions.userId,
+    username: this._conditions.username
+  })
     .then(user => {
       if(!user)
         next(formatUsedIdError())

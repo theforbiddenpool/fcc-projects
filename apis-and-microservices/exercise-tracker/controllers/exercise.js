@@ -1,12 +1,13 @@
 const Exercise = require('../models/exercise')
 
-const add = (data) => {
+const add = async (data) => {
   return new Exercise(data).save()
 }
 
-const getByUserId = (data) => {
+const getByUser = (data) => {
   return Exercise.find({
-    userId: data.userId,
+    ...(data.userId ? { userId: data.userId } : {}),
+    ...(data.username ? { username: data.username } : {}),
     date: {
       $gte: data.from ? new Date(data.from) : 0,
       $lte: data.to ? new Date(data.to) : Date.now()
@@ -16,8 +17,8 @@ const getByUserId = (data) => {
     .exec()
     .then(result => new Promise(resolve => {
       const out = {
-        _id: data.userId,
-        username: result[0].username,
+        _id: result[0]?.userId,
+        username: result[0]?.username,
         from: data.from ? new Date(data.from).toDateString() : undefined,
         to: data.to ? new Date(data.to).toDateString() : undefined,
         count: result.length,
@@ -29,9 +30,10 @@ const getByUserId = (data) => {
       }
       resolve(out)
     }))
+    .catch(err => { throw err })
 }
 
 module.exports = {
   add,
-  getByUserId
+  getByUser
 }
