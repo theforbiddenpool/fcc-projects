@@ -13,7 +13,7 @@ export const Display = ({ label, secondsLeft }) => {
   }
 
   return (
-    <div className="timer-display">
+    <div className="timer-display" aria-live="polite">
       <h2 id="timer-label">{ label }</h2>
       <p id="time-left">{ clockify(secondsLeft) }</p>
     </div>

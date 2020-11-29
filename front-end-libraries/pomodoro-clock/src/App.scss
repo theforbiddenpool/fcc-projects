@@ -14,6 +14,7 @@ $medium-red: #CC3C3C;
 $darker-red: #9c2c2c;
 $white: #fefffb;
 $grey: #e9eae5;
+$darker-grey: #b1b2ae;
 $black: #000;
 
 * {
@@ -43,6 +44,11 @@ button {
     color: $white;
     border-color: $medium-red;
   }
+
+  &:disabled {
+    background-color: $darker-grey;
+    color: $black;
+  }
 }
 
 #root {
@@ -56,7 +62,6 @@ button {
   background-color: $white;
   border: 3px solid $darker-blue;
   box-shadow: 3px 3px 2px 2px rgba($darker-blue, 0.5);
-  // border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,9 +106,6 @@ main {
 
   .timer-display {
     background-color: $grey;
-    // border: .33rem solid $darker-red;
-    // border-radius: .5rem;
-    // padding: .5rem 3rem;
     min-width: 100px;
 
     & > h2 {

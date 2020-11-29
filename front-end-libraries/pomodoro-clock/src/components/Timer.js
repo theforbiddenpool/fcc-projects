@@ -23,7 +23,7 @@ export const Timer = () => {
     } else if(label === 'Break') {
       setSecondsLeft(breakLength * 60)
     }
-  }, [sessionLength, breakLength])
+  }, [sessionLength, breakLength, isIntervalRunning, label])
 
   function startStop() {
     if(isIntervalRunning) {
@@ -55,7 +55,7 @@ export const Timer = () => {
         setLabel('Session')
       }
     }
-  }, [secondsLeft])
+  }, [breakLength, label, secondsLeft, sessionLength])
 
   function isLengthValid(num, currentLength) {
     return ((num > 0 && currentLength < 60) || (num < 0 && currentLength > 1))
@@ -83,7 +83,7 @@ export const Timer = () => {
         <LengthControl id="break" label="Break Length" length={ breakLength } handleChange={ handleBreakChange } />
         <LengthControl id="session" label="Session Length" length={ sessionLength } handleChange={ handleSessionChange } />
       </section>
-      <section className="timer">
+      <section className="timer" aria-label="Timer">
         <Display label={ label } secondsLeft={ secondsLeft } />
         <TimerControls handleStartStop={ startStop } isIntervalRunning={ isIntervalRunning } handleReset={ reset } />
         <audio ref={beepSound} id="beep" src="https://goo.gl/65cBl1"></audio>
